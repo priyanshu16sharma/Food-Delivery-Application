@@ -1,0 +1,12 @@
+.mySwiper .swiper-button-prev,
+.swiper-button-next {
+    height: 30px !important;
+    width: 30px !important;
+    border-radius: 9999px !important;
+    background-color: aliceblue !important;
+}
+
+.mySwiper .swiper-button-next::after,
+.swiper-button-prev::after {
+    font-size: 20px;
+}
