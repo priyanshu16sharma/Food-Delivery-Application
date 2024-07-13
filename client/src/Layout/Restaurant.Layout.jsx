@@ -5,7 +5,7 @@ import ImageGrid from '../Components/Restaurant/ImageGrid';
 //import ImageGrid from '../Components/Restaurant/ImageGrid';
 // import InfoButton from '../Components/Restaurant/InfoButton';
 import RestaurantInfo from '../Components/Restaurant/RestaurantInfo';
-// import Tabs from '../Components/Restaurant/Tabs';
+import Tabs from '../Components/Restaurant/Tabs';
 // import CartContainer from '../Components/Restaurant/CartContainer';
 
 import { TiStarOutline } from 'react-icons/ti';
@@ -17,10 +17,16 @@ const Restaurant = (Component) => ({ ...props }) => {
         <>
             <div><Navbar /></div>
             <ImageGrid />
-            <RestaurantInfo />
+            <div className="md:sticky top-0  bg-white" style={{ zIndex: 1 }}>
+                <RestaurantInfo />
+                <div className=' overflow-x-auto  md:overflow-hidden'>
+                    <Tabs />
+                </div>
+
+            </div>
             <Component {...props} />
 
-            <RiDirectionLine />
+
 
         </>
     )

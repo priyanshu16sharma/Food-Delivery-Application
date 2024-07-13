@@ -4,10 +4,6 @@ import { Outlet } from 'react-router-dom';
 const RedirectRestaurant = () => {
     return (
         <>
-            <div>
-                Restaurant
-
-            </div>
             <Outlet />
         </>
     )

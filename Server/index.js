@@ -1,8 +1,13 @@
 import express from "express";
 import DBconnect from "./database/connection";
 import dotenv from "dotenv";
-import auth from "./api/auth"
-import restaurant from "./api/restaurant"
+
+// routers
+import restaurant from "./api/restaurant";
+import food from "./api/food";
+import auth from "./api/auth";
+import menu from "./api/menu";
+
 import passport from "passport";
 import session from "express-session";
 import bodyParser from "body-parser";
@@ -21,9 +26,13 @@ app.use(passport.session());
 app.use(express.json());
 app.use(bodyParser.json());
 
+//routes
 app.use("/user", user);
 app.use("/auth", auth);
 app.use("/r", restaurant);
+app.use("/food", food);
+app.use("/menu", menu);
+
 const port = 8081;
 app
     .get("/", (req, res) => {

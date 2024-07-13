@@ -18,9 +18,10 @@ function App() {
         <Route path='/' element={<Navigate to="/delivery" />} />
         <Route path='/:type' element={<HomePage />} />
         <Route path='/restaurant/:id' element={<RedirectRestaurant />}>
-          <Route path='/restaurant/:id/overview' element={<Overview />} />
           <Route path='/restaurant/:id/order-online' element={<OrderOnline />} />
-          <Route path='/restaurant/:id/reviews' element={<Reviews />} />
+          <Route path='/restaurant/:id/overview' element={<Overview />} />
+
+          <Route path='/restaurant/:id/reviews' element={<Reviews/>} />
           <Route path='/restaurant/:id/menu' element={<Menu />} />
           <Route path='/restaurant/:id/photos' element={<Photos />} />
         </Route>

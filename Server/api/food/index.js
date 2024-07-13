@@ -1,4 +1,4 @@
-import { foods } from "../../database/allModels";
+import foods from "../../database/food";
 import express from "express";
 
 const Router = express.Router();
@@ -9,7 +9,16 @@ const Router = express.Router();
  * params: none
  * Access: public 
  */
-//HomeWork
+Router.post("/create", async (req, res) => {
+    try {
+        const foodObject = req.body;
+        const food = await foods.create(foodObject);
+
+        return res.status(200).send(food);
+    } catch (error) {
+        return res.status(200).send({ error: error.message });
+    }
+})
 
 
 
@@ -21,7 +30,7 @@ const Router = express.Router();
  * params: id
  * Access: public 
  */
-Router.get("/:_id", async (res, req) => {
+Router.get("/:_id", async (req, res) => {
     try {
         const { _id } = req.params;
         const food = await foods.findById(_id);
@@ -51,7 +60,7 @@ Router.get("/r/:_id", async (req, res) => {
             return res.status(200).json({ success: false, detail: "No food related to passed params found" });
         }
 
-        return res.status(200).json({ food });
+        return res.status(200).json(food);
     } catch (error) {
         return res.status(200).json({ error: error.message })
     }
@@ -64,10 +73,10 @@ Router.get("/r/:_id", async (req, res) => {
  * params: category
  * Access: public 
  */
-Router.get("/category/:category", (req, res) => {
+Router.get("/category/:category", async (req, res) => {
     try {
         const { category } = req.params;
-        const food = foods.find({ category: { $regex: category, $options: "i" } });
+        const food = await foods.find({ category: { $regex: category, $options: "i" } });
 
         return res.status(200).json({ food });
     } catch (error) {

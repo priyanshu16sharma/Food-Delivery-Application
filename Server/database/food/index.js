@@ -11,7 +11,7 @@ const FoodSchema = new mongoose.Schema(
             type: mongoose.Types.ObjectId,
             ref: "images",
         },
-        price: { type: Number, default: 150, required: true },
+        price: { type: String, default: 150, required: true },
         addOns: [
             {
                 type: mongoose.Types.ObjectId,
@@ -28,5 +28,5 @@ const FoodSchema = new mongoose.Schema(
         timestamps: true,
     }
 );
-
-export const foods = mongoose.model("foods", FoodSchema);
+const foods = mongoose.model("foods", FoodSchema);
+export default foods;

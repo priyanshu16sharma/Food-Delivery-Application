@@ -5,6 +5,24 @@ import images from '../../database/images';
 const Router = express.Router();
 
 /**
+ * Method: post
+ * route: /add
+ * purpose: post a menu
+ * params: none
+ * Access: public 
+ */
+Router.post("/create", async (req, res) => {
+    try {
+        const data = req.body;
+        console.log(data);
+        const menu = await menus.create(data);
+        return res.status(200).send(menu);
+    } catch (error) {
+        return res.status(500).send({ error: error.message });
+    }
+})
+
+/**
  * Method: get
  * route: /:_id
  * purpose: get menu based on id

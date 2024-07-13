@@ -30,7 +30,7 @@ const LargeTab = () => {
     console.log(category[0].activeColor);
     return (
         <>
-            <div className='h-26 w-full flex  flex-row justify-center border-b items-center hidden lg:flex'>
+            <div className='h-26 w-full flex  flex-row justify-center border-b items-center  lg:flex'>
                 <div className="h-full w-4/5 flex  flex-row justify-start gap-4">
                     {category.map((item, index) => {
                         return (<Link key={item.id} to={`/${item.id}`}>

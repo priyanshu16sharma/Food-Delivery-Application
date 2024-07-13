@@ -6,10 +6,11 @@ const menuSchema = new Schema({
     items: [{
         type: mongoose.Types.ObjectId, ref: "foods"
     }],
-    recommnded: [{
+    recommended: [{
         type: mongoose.Types.ObjectId,
         ref: "foods",
         unique: true,
+        sparse: true
     }]
 }, {
     timestamps: true
